@@ -1,0 +1,17 @@
+#Given 2 rectangles x0,y0,w0,h0 and x1,y1,w1,h1, calculate IOU
+
+def calculate_IOU(x0,y0,w0,h0,x1,y1,w1,h1):
+    x_min = min(x0,x1)
+    x_max = max(x0+w0,x1+w1)
+    w = w0+w1-(x_max-xmin)
+
+    y_min = min(y0,y1)
+    y_max = max(y0+h0,y1+h1)
+
+    h = h0+h1-(y_max-y_min)
+
+    if w<=0 or h<=0:
+        return 0
+    else:
+        return 1.0*w*h/(w0*h0+w1*h1-w*h)
+
